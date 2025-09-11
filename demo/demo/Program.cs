@@ -10,7 +10,7 @@ namespace demo
     {
         static void Main(string[] args)
         {
-
+            Console.Write("Toi la vua code");
         }
     }
 }
