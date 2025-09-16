@@ -4,12 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Chương_trình_quản_lý_thí_sinh_dự_thi_đại_học
+namespace QuanLyThiSinhDuThiDaiHoc
 {
     public interface IThiSinh
     {
+        string SoBD { get; set; }
+        string HoTen { get; set; }
+        string GioiTinh { get; set; }
+        DateTime NgaySinh { get; set; }
+        string DiaChi { get; set; }
+        string MaToHop { get; } 
+        string TenToHop { get; } 
+
         void NhapThongTin();
         void InThongTin();
         double TinhTongDiem();
+        void NhapDiem();
     }
 }
