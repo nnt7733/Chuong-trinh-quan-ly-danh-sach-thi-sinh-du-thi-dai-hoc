@@ -1,0 +1,2 @@
+D:\oop\QuanLyThiSinhThiDaiHoc\QuanLyThiSinhThiDaiHoc\obj\Debug\QuanLyThiSinhThiDaiHoc.csproj.AssemblyReference.cache
+D:\oop\QuanLyThiSinhThiDaiHoc\QuanLyThiSinhThiDaiHoc\obj\Debug\QuanLyThiSinhThiDaiHoc.csproj.CoreCompileInputs.cache
