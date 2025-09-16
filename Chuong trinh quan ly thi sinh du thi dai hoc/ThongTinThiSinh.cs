@@ -37,11 +37,26 @@ namespace Chương_trình_quản_lý_thí_sinh_dự_thi_đại_học
             HoTen = Console.ReadLine()
             Console.Write("Nhập giới tính: ");
             GioiTinh = Console.ReadLine()
-            Console.Write("Nhập ngày sinh (dd/MM/yyyy): ");
-            string input = Console.ReadLine();
-            NgaySinh = DateTime.ParseExact(input, "dd/MM/yyyy", null)
-            Console.Write("Nhập địa chỉ: ");
-            DiaChi = Console.ReadLine();
+            // Kiểm tra ngày sinh
+            DateTime ngaySinh;
+            while (true)
+            {
+                Console.Write("Nhập ngày sinh (dd/MM/yyyy): ");
+                string input = Console.ReadLine();
+                //TryParseExact sẽ trả về kiểu true false
+                if (DateTime.TryParseExact(input, "dd/MM/yyyy", null,
+                                           System.Globalization.DateTimeStyles.None,
+                                           out ngaySinh))
+                {
+                    NgaySinh = ngaySinh;
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("❌ Ngày sinh không hợp lệ, vui lòng nhập lại theo định dạng dd/MM/yyyy.");
+                }
+                Console.Write("Nhập địa chỉ: ");
+                DiaChi = Console.ReadLine();
         }
 
         public virtual void InThongTin()
