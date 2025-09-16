@@ -8,130 +8,51 @@ namespace Chương_trình_quản_lý_thí_sinh_dự_thi_đại_học
 {
     public abstract class ThongTinThiSinh : IThiSinh
     {
-        private string hoTen;
-        private string gioiTinh;
-        private DateTime ngaySinh;
-        private string soBD;
-        private string diaChi;
-        // theo chương trình 2025 thì toán và văn là 2 môn bắt buộc
-        private double diemToan;
-        private double diemVan;
-        private double diemAnh;
-        private double diemLy;
-        private double diemHoa;
-        private double diemSinh;
-        private double diemSu;
-        private double diemDia;
-        private double diemCongDan;
-        private double diemTin;
-        public string HoTen
+        public string MaSo { get; set; }
+        public string Ten { get; set; }
+        public string GioiTinh { get; set; }
+        public DateTime NgaySinh { get; set; }
+        public string DiaChi { get; set; }
+        public Dictionary<string, double> Diem { get; set; }
+        public ThongTinThiSinh()
         {
-            get { return hoTen; }
-            set { hoTen = value; }
+            Diem = new Dictionary<string, double>();
         }
-        public string GioiTinh
+        public  ThongTinThiSinh(string maSo, string ten, string gioiTinh,
+                  DateTime ngaySinh, string diaChi,
+                  Dictionary<string, double> diem)
         {
-            get { return gioiTinh; }
-            set { gioiTinh = value; }
-        }
-        // sẽ kiểm tra điều kiện nhập sau!
-        public DateTime NgaySinh
-        {
-            get { return ngaySinh; }
-            set { ngaySinh = value; }
-        }
-        public string SoBD
-        {
-            get { return soBD; }
-            set { soBD = value; }
-        }
-        public string DiaChi
-        {
-            get { return diaChi; }
-            set { diaChi = value; }
-        }
-        public double DiemToan
-        {
-            get { return diemToan; }
-            set { diemToan = value; }
-        }
-        public double DiemVan
-        {
-            get { return diemVan; }
-            set { diemVan = value; }
-        }
-        public double DiemAnh
-        {
-            get { return diemAnh; }
-            set { diemAnh = value; }
-        }
-        public double DiemLy
-        {
-            get { return diemLy; }
-            set { diemLy = value; }
-        }
-        public double DiemHoa
-        {
-            get { return diemHoa; }
-            set { diemHoa = value; }
-        }
-        public double DiemSinh
-        {
-            get { return diemSinh; }
-            set { diemSinh = value; }
-        }
-        public double DiemSu
-        {
-            get { return diemSu; }
-            set { diemSu = value; }
-        }
-        public double DiemDia
-        {
-            get { return diemDia; }
-            set { diemDia = value; }
-        }
-        public double DiemCongDan
-        {
-            get { return diemCongDan; }
-            set { diemCongDan = value; }
-        }
-        public double DiemTin
-        {
-            get { return diemTin; }
-            set { diemTin = value; }
-        }
-
-        public ThongTinThiSinh() { }
-        public ThongTinThiSinh(string hoTen, string gioiTinh, DateTime ngaySinh, string soBD, string diaChi)
-        {
-            this.hoTen = hoTen;
-            this.gioiTinh = gioiTinh;
-            this.ngaySinh = ngaySinh;
-            this.soBD = soBD;
-            this.diaChi = diaChi;
+            MaSo = maSo;
+            Ten = ten;
+            GioiTinh = gioiTinh;
+            NgaySinh = ngaySinh;
+            DiaChi = diaChi;
+            Diem = diem ?? new Dictionary<string, double>();
         }
         public virtual void NhapThongTin()
         {
             Console.Write("Nhập số báo danh: ");
-            SoBD = Console.ReadLine();
+            SoBD = Console.ReadLine()
             Console.Write("Nhập họ tên: ");
-            HoTen = Console.ReadLine();
-            Console.Write("Nhập giới tính");
-            GioiTinh= Console.ReadLine();
+            HoTen = Console.ReadLine()
+            Console.Write("Nhập giới tính: ");
+            GioiTinh = Console.ReadLine()
             Console.Write("Nhập ngày sinh (dd/MM/yyyy): ");
             string input = Console.ReadLine();
-            DateTime ngaySinh = DateTime.ParseExact(input, "dd/MM/yyyy", null);
+            NgaySinh = DateTime.ParseExact(input, "dd/MM/yyyy", null)
             Console.Write("Nhập địa chỉ: ");
             DiaChi = Console.ReadLine();
         }
+
         public virtual void InThongTin()
         {
-            Console.Write($"Ho va ten thi sinh: {HoTen}\n");
-            Console.Write($"Gioi Tinh: {GioiTinh}\n");
-            Console.Write($"Ngay Sinh: {NgaySinh.ToShortDateString()}\n");
-            Console.Write($"So bao danh: {SoBD} \n");
-            Console.Write($"Địa chỉ: {DiaChi}\n");
+            Console.WriteLine($"Họ và tên thí sinh: {HoTen}");
+            Console.WriteLine($"Giới tính: {GioiTinh}");
+            Console.WriteLine($"Ngày sinh: {NgaySinh:dd/MM/yyyy}");
+            Console.WriteLine($"Số báo danh: {SoBD}");
+            Console.WriteLine($"Địa chỉ: {DiaChi}");
         }
+
 
         public abstract double TinhTongDiem();
     }

@@ -10,7 +10,7 @@ namespace Chương_trình_quản_lý_thí_sinh_dự_thi_đại_học
     {
         static void Main(string[] args)
         {
-            List<ThongTinThiSinh> hs = new List<ThongTinThiSinh>();
+            List<IThiSinh> hs = new List<IThiSinh>();
             Console.WriteLine("Nhap so luong hoc sinh: ");
             int n=int.Parse(Console.ReadLine());
 
